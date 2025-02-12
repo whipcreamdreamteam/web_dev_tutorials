@@ -1,0 +1,218 @@
+/* style.css */
+
+:root {
+    /*  Color Palette */
+    --primary-color: #f08080; /* Light Coral */
+    --secondary-color: #6495ed; /* Cornflower Blue */
+    --background-color: #fffaf0; /* Floral White */
+    --text-color: #444;
+    --accent-color: #d87093; /* Pale Violet Red */
+     /* Typography */
+    --font-family: 'Nunito Sans', sans-serif;
+    /* Spacing */
+    --spacing-unit: 1rem;
+      /* Border and Shadow */
+    --border-radius: 8px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Layout --- */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: var(--spacing-unit) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none; /* Remove underline from logo link */
+    display: block; /* Make the logo a block element */
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: var(--spacing-unit);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+    display: block;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    color: var(--accent-color);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+h2{
+  text-align: center;
+}
+/* --- Image Grid --- */
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-unit);
+    margin-top: 2rem;
+}
+
+.image-container {
+    position: relative;  /*For the attribution overlay positioning */
+    overflow: hidden; /* Ensure images don't overflow their containers */
+    border-radius: var(--border-radius); /* Consistent rounded corners */
+    box-shadow: var(--box-shadow);
+}
+
+.image-container img {
+    display: block; /*  Removes extra space below inline images */
+    width: 100%;
+    height: auto;
+    object-fit: cover;/*  Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth scaling */
+}
+.image-container:hover img {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* --- Attribution --- */
+
+.attribution {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+.attribution a {
+    color: inherit; /*  Use the same color as the surrounding text */
+    text-decoration: underline;
+}
+
+/* --- Form --- */
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 1rem;
+}
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: darken(var(--secondary-color), 10%);
+}
+
+/* --- Footer --- */
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;/*  Push footer to bottom */
+}
+/*contact page*/
+#contact-info .contact-details{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#contact-info address{
+    font-style: normal;
+    font-size: 1.4rem;
+}
+#contact-info h2{
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start for a stacked layout */
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    #contact-info .contact-details{
+        flex-direction: column;
+    }
+}
